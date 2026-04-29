@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav class="navbar">
-            <img src="../images/northhub.svg" id="logo"></img>
+            <img src="../images/logo.svg" id="logo"></img>
             <button class="navbarbuttons" onclick="showSection('create')"> Create </button>
             <button class="navbarbuttons" > Read </button>
             <button class="navbarbuttons" > Update </button>
