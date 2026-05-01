@@ -1,92 +1,37 @@
-body{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-}
-.navbar{
-    display: flex;
-    justify-content:space-evenly;
-    width:80%;
-    height:5vh;
-    align-items: center;
-    background-color: rgba(102, 176, 241, 1);
-    color: white;
-    border-radius:45px;
+body {
+    font-family: Arial;
+    background: #f5f9fc;
+    text-align: center;
 }
 
-#logo{
-    width:40px;
-    height:auto;
-    filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
+.navbar {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 15px;
+    border-radius: 20px;
 }
 
-.navbarbuttons{
-    background-color:rgba(240, 255, 255, .3);
-    border:none;
-    width:100px;
-    border-radius:45px;
-    backdrop-filter: 5px;
-    color:aliceblue;
+.logo {
+    width: 50px;
+    cursor: pointer;
+    vertical-align: middle;
 }
 
-.content,.homecontent{
-    display:block;
-    align-items: center;
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
 }
 
-.contenttitle,.label,.btns,.splash{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:rgb(102, 176, 241); 
-
+.section {
+    margin-top: 20px;
 }
 
-.splash{
-    font-style: italic;
+input {
+    margin: 5px;
+    padding: 8px;
+    width: 200px;
 }
-
-.label,.field,.btns{
-    margin-top:10px;
-}
-
-.label {
-    display: inline-block;
-    width: 150px; 
-    font-weight: bold;
-}
-
-.field {
-    display: inline-block;
-    width: 250px; 
-    padding: 5px;
-    box-sizing: border-box; 
-}
-
-.btns{
-    width:182px;
-    padding:3px;
-}
-
-#btncontainer{
-    display:flex;
-    gap:20px;
-}
-
-/* For the insertion success message */
-#success-toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1000;
-}
-
-.toast-hidden {
-    display: none;
-    opacity: 0;
-}
+    

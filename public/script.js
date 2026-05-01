@@ -1,38 +1,63 @@
-//fucntion to show selected section
-function showSection(sectionID){
-    //initially, select all sections
-    // use querySelectorAll for all sections with class content and homecontent
-    const sections = document.querySelectorAll('.content');
-    const homesection = document.querySelectorAll('.homecontent');
+function showSection(section) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.style.display = 'none');
 
-    //hide the resulting content sections using foreach
-    sections.forEach(section => {
-        section.style.display='none';
-    });
-
-
-    //select the section that would
-    //be displayed when clicked
-    const activeSection = document.getElementById(sectionID);
-    if(activeSection){
-        activeSection.style.display='block';
-    }
+    document.getElementById(section).style.display = 'block';
 }
 
-//for the insertion success
-window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('status') === 'success') {
-        const toast = document.getElementById('success-toast');
-        toast.classList.remove('toast-hidden');
-        
-        // Hide it automatically after 3 seconds
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.classList.add('toast-hidden'), 500);
-        }, 3000);
+// LOGO FUNCTION (toggle create form)
+function toggleForm() {
+    let form = document.getElementById('create');
+    form.style.display = (form.style.display === 'none') ? 'block' : 'none';
+}
 
-        // Clean the URL
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
+// CREATE
+function insertData() {
+    let data = new FormData();
+    data.append("surname", document.getElementById("surname").value);
+    data.append("name", document.getElementById("name").value);
+    data.append("middle", document.getElementById("middle").value);
+    data.append("address", document.getElementById("address").value);
+    data.append("mobile", document.getElementById("mobile").value);
+
+    fetch("../includes/insert.php", {
+        method: "POST",
+        body: data
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+}
+
+// READ
+function loadData() {
+    fetch("../includes/read.php")
+    .then(res => res.text())
+    .then(data => document.getElementById("data").innerHTML = data);
+}
+
+// UPDATE
+function updateData() {
+    let data = new FormData();
+    data.append("id", document.getElementById("uid").value);
+    data.append("name", document.getElementById("uname").value);
+
+    fetch("../includes/update.php", {
+        method: "POST",
+        body: data
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
+}
+
+// DELETE
+function deleteData() {
+    let data = new FormData();
+    data.append("id", document.getElementById("did").value);
+
+    fetch("../includes/delete.php", {
+        method: "POST",
+        body: data
+    })
+    .then(res => res.text())
+    .then(data => alert(data));
 }

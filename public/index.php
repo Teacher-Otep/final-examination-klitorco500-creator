@@ -1,63 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Operations</title>
-    <link   rel="stylesheet" href="style.css">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-            <img src="../images/logo.svg" id="logo"></img>
-            <button class="navbarbuttons" onclick="showSection('create')"> Create </button>
-            <button class="navbarbuttons" > Read </button>
-            <button class="navbarbuttons" > Update </button>
-            <button class="navbarbuttons" > Delete </button>
-    </nav>
-    <section id="home" class="homecontent"> 
-        <h1 class="splash">Welcome to Student Management System</h1>
-        <h2 class="splash">A Project in Integrative Programming Technologies</h2>
-    </section>
-    
-    <section id="create" class="content">
-        <h1 class="contenttitle"> Insert New Student </h1>
 
-    <form action="../includes/insert.php" method="POST">
-        <label for="surname" class="label">Surname</label>
-        <input type="text" name="surname" id="surname" class="field" required><br/>
+<div class="navbar">
+    <img src="../images/logo.svg" class="logo" onclick="toggleForm()">
 
-        <label for="name" class="label">Name</label>
-        <input type="text" name="name" id="name" class="field" required><br/>
+    <button onclick="showSection('create')">Create</button>
+    <button onclick="showSection('read')">Read</button>
+    <button onclick="showSection('update')">Update</button>
+    <button onclick="showSection('delete')">Delete</button>
+</div>
 
-        <label for="middlename" class="label">Middle name</label>
-        <input type="text" name="middlename" id="middlename" class="field"><br/>
+<h1>Welcome to Student Management System</h1>
+<p>A Project in Integrative Programming Technologies</p>
 
-        <label for="address" class="label">Address</label>
-        <input type="text" name="address" id="address" class="field"><br/>
+<!-- CREATE -->
+<div id="create" class="section">
+    <h2>Insert New Student</h2>
 
-        <label for="contact" class="label">Mobile Number</label>
-        <input type="text" name="contact" id="contact" class="field"><br/>
+    <input type="text" id="surname" placeholder="Surname"><br>
+    <input type="text" id="name" placeholder="Name"><br>
+    <input type="text" id="middle" placeholder="Middle Name"><br>
+    <input type="text" id="address" placeholder="Address"><br>
+    <input type="text" id="mobile" placeholder="Mobile Number"><br>
 
-        <div id="btncontainer">
-            <button type="button" id="clrbtn" class="btns">Clear Fields</button><br/>
-            <button type="submit" id="savebtn" class="btns">Save</button>
-        </div>
+    <button onclick="insertData()">Save</button>
+</div>
 
-        <div id="success-toast" class="toast-hidden">
-            Registration Successful!
-        </div>
-    </form>   
+<!-- READ -->
+<div id="read" class="section" style="display:none;">
+    <h2>Student List</h2>
+    <button onclick="loadData()">Load Data</button>
+    <div id="data"></div>
+</div>
 
-    </section>
+<!-- UPDATE -->
+<div id="update" class="section" style="display:none;">
+    <h2>Update Student</h2>
 
-<br/><br/><br/><br/>
+    <input type="text" id="uid" placeholder="ID"><br>
+    <input type="text" id="uname" placeholder="Name"><br>
 
-    <section id="read" class="content"> View Students </section>
-    <section id="update" class="content"> Update Student Records </section>
-    <section id="delete" class="content"> Remove Student Records </section>
+    <button onclick="updateData()">Update</button>
+</div>
 
+<!-- DELETE -->
+<div id="delete" class="section" style="display:none;">
+    <h2>Delete Student</h2>
 
+    <input type="text" id="did" placeholder="ID"><br>
+    <button onclick="deleteData()">Delete</button>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
